@@ -1,0 +1,274 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --index: calc(1vw + 1vh);
+  --transition: 1.5s cubic-bezier(.05, .5, 0, 1);
+}
+
+@font-face {
+  font-family: merriweather-italic-3d;
+  src: url(../parallex/fonts/merriweather-regular-italic.woff2);
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: kamerik-3d;
+
+  background-image: url("../parallax/img/layer-1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  color: rgb(0, 255, 42);
+}
+
+a:visited {
+  color: rgb(254, 152, 0);
+}
+
+.container {
+  max-width: 750px;
+  margin: auto;
+  padding: 20px;
+}
+
+.avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 28px;
+  box-shadow: 4px 4px 14px rgba(0, 0, 0, .25);
+  margin-right: 20px;
+}
+
+.info {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  display: flex;
+  box-shadow: 4px 4px 14px rgba(0, 0, 0, .25);
+}
+
+.info-text {
+  margin-left: 40px;
+  font-size: 20px;
+  background: #00000077;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 4px 4px 14px rgba(0, 0, 0, .25);
+  margin: auto;
+  width: 100%;
+}
+
+.info-text p {
+  color: #fdfdfd;
+}
+
+.info-text h4 {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 650px) {
+  .container {
+    margin: 20px;
+  }
+
+  .info {
+    display: block;
+    text-align: center;
+  }
+
+  .info-text {
+    margin: auto;
+    margin-top: 20px;
+  }
+}
+
+.card {
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+.expience h2 {
+  margin-bottom: 20px;
+}
+
+.stack h2 {
+  margin-bottom: 20px;
+}
+
+.bg-yellow {
+  background: #fff9dc;
+}
+
+.bg-red {
+  background: #ffe5e5;
+}
+
+.bg-green {
+  background: #00000077;
+}
+
+.btn {
+  background: #111;
+  padding: 15px 20px;
+  color: #fff;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  background-color: transparent;
+  color: #fff;
+  border-radius: 10em;
+  border: rgb(255 255 255 / .4) 3px solid;
+  outline: none;
+  cursor: pointer;
+  margin-top: calc(var(--index) * 2.5);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.btn:hover {
+  opacity: 0.8;
+  border-color: #069617;
+}
+
+.list {
+  padding: 0 20px;
+}
+
+.list li {
+  color: #0055ff;
+  margin-bottom: 10px;
+}
+
+.link-list {
+  list-style: none;
+  padding: 0;
+}
+
+.link-list li {
+  margin-bottom: 10px;
+  border-bottom: 1px dashed #48ff004e;
+  padding-bottom: 5px;
+  font-size: 20px;
+}
+
+.table {
+  width: 100%;
+  font-size: 20px;
+}
+
+.table td {
+  padding-bottom: 10px;
+  text-align: left;
+  border-bottom: 1px solid #0696179a;
+}
+
+.table-title {
+  text-align: left;
+}
+
+.table td:nth-child(2),
+.table td:nth-child(3) {
+  color: #fcfcfc;
+}
+
+.form h2 {
+  margin-bottom: 20px;
+}
+
+.form-row {
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.form-row .form-group {
+  margin-right: 20px;
+  width: 50%;
+}
+
+.form-row .form-group:last-child {
+  margin-right: 0;
+}
+
+@media (max-width: 650px) {
+  .form-row {
+    display: block;
+  }
+
+  .form-row .form-group {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  color: #ffffff;
+
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid #069617;
+  color: #ffffff;
+  padding: 15px 0 10px;
+  outline: none;
+  font-family: inherit;
+}
+
+.main-button {
+  font-family: Arial;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: calc(var(--index) * .71);
+  letter-spacing: -.02vw;
+  padding: calc(var(--index) * .7) calc(var(--index) * 1.25);
+  background-color: transparent;
+  color: #fff;
+  border-radius: 10em;
+  border: rgb(255 255 255 / .4) 3px solid;
+  outline: none;
+  cursor: pointer;
+  margin-top: calc(var(--index) * 2.5);
+  margin: 20px;
+}
+
+.main-button:hover {
+  border-color: #fff;
+}
+
+.layers__item {
+  position: absolute;
+  inset: -5vw;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.layer-4 {
+  pointer-events: none;
+}
