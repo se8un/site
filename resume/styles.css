@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: merriweather-italic-3d;
-  src: url(../parallex/fonts/merriweather-regular-italic.woff2);
+  src: url(../fonts/merriweather-regular-italic.woff2);
 }
 
 body {
@@ -19,7 +19,7 @@ body {
   color: #fff;
   font-family: kamerik-3d;
 
-  background-image: url("../parallax/img/layer-1.jpg");
+  background-image: url("../img/layer-1.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
