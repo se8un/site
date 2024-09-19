@@ -25,8 +25,8 @@ body {
   background-size: cover;
 }
 
-/* a {
-  color: rgb(254, 152, 0);
+a {
+  color: rgb(255, 255, 255);
   text-decoration: none;
 }
 
@@ -34,7 +34,7 @@ a:hover {
   text-decoration: underline;
 }
 
-a:active {
+/* a:active {
   color: rgb(0, 255, 42);
 } */
 
