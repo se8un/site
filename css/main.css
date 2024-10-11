@@ -43,6 +43,7 @@ body {
 	justify-content: center;
 }
 .layer-1 {
+	border-radius: 5%;
 	transform: translateZ(-55px) scale(1.06);
 }
 .layer-2 {
