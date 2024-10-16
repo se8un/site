@@ -80,23 +80,32 @@ body {
   line-height: 3;
 }
 .button-start {
-  font-family: Arial;
   font-weight: 600;
   text-transform: uppercase;
   font-size: calc(var(--index) * 0.71);
   letter-spacing: -0.02vw;
   padding: calc(var(--index) * 0.7) calc(var(--index) * 1.25);
-  background-color: transparent;
-  color: #fff;
+  /* background-color: transparent; */
+  background-color: #c3ff003f;
+  color: #ffffff;
   border-radius: 10em;
   border: rgb(255 255 255 / 0.4) 3px solid;
   outline: none;
   cursor: pointer;
   margin-top: calc(var(--index) * 2.5);
+  /* transition: border-color var(--transition); */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: box-shadow var(--transition), transform var(--transition);
 }
+
 .button-start:hover {
-  border-color: #fff;
+  box-shadow: 0 8px 12px rgba(255, 255, 255, 0.15), 0 4px 6px rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
 }
+/* .button-start:hover {
+  border-color: #fff;
+} */
+
 .layer-4,
 .layer-5,
 .layer-6 {
