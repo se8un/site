@@ -6,6 +6,7 @@
   box-sizing: border-box;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
 :root {
   --index: calc(1vw + 1vh);
 }

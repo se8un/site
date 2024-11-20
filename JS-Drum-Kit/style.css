@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --index: calc(1vw + 1vh);
+}
+
 html,
 body {
   width: 100%;
@@ -23,25 +27,26 @@ body {
 
 /* _/_/_/_/_/_/_/_/_/_/_/_/ buttons _/_/_/_/_/_/_/_/_/_/_/_/ */
 .button-back {
-  margin: 10px;
-  padding: 10px;
-  font-size: 14px;
-  color: #fff;
-  text-shadow: 0 0 10px #f8c454;
-  background-color: #0000008b;
-  border: 1px solid #ffffff;
+  margin: calc(var(--index) * 0.2);
+  padding: calc(var(--index) * 0.5);
+  padding: 0 5px;
   border-radius: 20%;
   outline: none;
   cursor: pointer;
   transition: all 1s ease;
-}
-.button-back:hover {
   border-color: #f8c454;
+  background-color: #f8c454;
+  border: 1px solid #000000;
+  color: #000000;
+}
+
+.button-back:hover {
+  text-shadow: 0 0 10px #f8c454;
+  background-color: #0000008b;
+  border: 1px solid #ffffff;
+  color: #fff;
   transition: transform var(--transition);
   transform: scale(1.1);
-  border: 1px solid #000000;
-  background-color: #f8c454;
-  color: #000000;
 }
 
 /* дождь */
