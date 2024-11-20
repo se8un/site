@@ -25,8 +25,8 @@ const soundsLoop = {
 };
 
 const soundsUtility = {
-  // Minus: new Audio('./sounds/skratch/skratch-1.wav'),
-  // Equal: new Audio('./sounds/skratch/skratch-4.wav'),
+  Minus: new Audio('./sounds/pianino/zvuk-notyi-do-rastyanutyiy.wav'),
+  Equal: new Audio('./sounds/pianino/zvuk-notyi-do-vo-vtoroy-oktave-rastyanutyiy.wav'),
 };
 
 // Переключатель для отслеживания состояния воспроизведения звука
