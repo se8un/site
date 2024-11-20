@@ -94,10 +94,10 @@ function handlePlaySound(e) {
   if (key in soundsUtility) {
     if (sounds == matalofon) {
       sounds = pianino;
-      keyElement.classList.add('playingMusic');
+      keyElement.classList.add('changePianino');
     } else {
       sounds = matalofon;
-      keyElement.classList.remove('playingMusic');
+      keyElement.classList.remove('changePianino');
     }
   }
 

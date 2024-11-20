@@ -70,22 +70,22 @@ button {
   width: 100vw; /* Охватывает всю ширину экрана */
   height: 100vh; /* Охватывает всю высоту экрана */
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(12, 1fr);
+  grid-template-rows: repeat(11, 1fr) 80px; /* 11 строк с одинаковыми размерами, последняя строка высотой 60px */
   gap: 5px;
   overflow: hidden; /* предотвратит появление прокрутки при анимации расширения кнопок */
   grid-template-areas:
-    '  .      .      .      .      .      .      .      .      .      .      .     .'
-    '  .      .      .     KeyQ   KeyQ   KeyW   KeyW   KeyE   KeyE    .      .     .'
-    '  .      .      .     KeyQ   KeyQ   KeyW   KeyW   KeyE   KeyE    .      .     .'
-    '  .      .      .     KeyA   KeyA   KeyS   KeyS   KeyD   KeyD    .      .     .'
-    '  .      .      .     KeyA   KeyA   KeyS   KeyS   KeyD   KeyD    .      .     .'
-    '  .      .      .     KeyZ   KeyZ   KeyX   KeyX   KeyC   KeyC    .      .     .'
-    '  .      .      .     KeyZ   KeyZ   KeyX   KeyX   KeyC   KeyC    .      .     .'
-    '  .      .      .      .      .      .      .      .      .      .      .     .'
-    '  .      .      .      .      .      .      .      .      .      .      .     .'
-    '  .      .      .      .      .      .      .      .      .      .      .     .'
-    '  .      .      .      .      .      .      .      .      .      .      .     .'
-    'Digit1 Digit2 Digit3 Digit4 Digit5 Digit6 Digit7 Digit8 Digit9 Digit0 Minus Equal';
+    '  .      .      .      .      .      .      .      .      .      .      .      .'
+    '  .    Equal    .     KeyQ   KeyQ   KeyW   KeyW   KeyE   KeyE    .      .      .'
+    '  .      .      .     KeyQ   KeyQ   KeyW   KeyW   KeyE   KeyE    .      .      .'
+    '  .      .      .     KeyA   KeyA   KeyS   KeyS   KeyD   KeyD    .      .      .'
+    '  .      .      .     KeyA   KeyA   KeyS   KeyS   KeyD   KeyD    .      .      .'
+    '  .      .      .     KeyZ   KeyZ   KeyX   KeyX   KeyC   KeyC    .      .      .'
+    '  .      .      .     KeyZ   KeyZ   KeyX   KeyX   KeyC   KeyC    .      .      .'
+    '  .      .      .      .      .      .      .      .      .      .      .      .'
+    '  .      .      .      .      .     Minus  Minus   .      .      .      .      .'
+    '  .      .      .      .      .      .      .      .      .      .      .      .'
+    '  .      .      .      .      .      .      .      .      .      .      .      .'
+    'Digit1 Digit2 Digit3 Digit4 Digit5 Digit6 Digit7 Digit8   .      .  Digit9 Digit0';
 }
 
 .digits,
@@ -95,27 +95,14 @@ button {
 
 /* кнопки */
 .key {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: url('./img/drums/hang-drum.png') no-repeat center;
   background-size: contain; /* Сохраняет пропорции изображения и отображает его целиком */
   cursor: pointer;
   -webkit-tap-highlight-color: transparent; /* устранения синего фона при нажатии на кнопку на мобильных устройствах  */
 }
 
-/* цифра нижних иконок */
-.digits kbd {
-  align-self: flex-end;
-  font-size: 10px;
-  font-weight: bold;
-  color: #000000;
-  text-shadow: 0 0 10px #ffffff;
-  margin-bottom: 2px;
-}
-
 /* символ кнопки */
-.letters kbd {
+kbd {
   display: none;
 }
 
@@ -210,7 +197,17 @@ button {
 /* - + */
 .Minus {
   grid-area: Minus;
+  background: url('./img/drums/xylophone.png') no-repeat center;
+  background-size: contain;
 }
 .Equal {
   grid-area: Equal;
+  background: url('./img/drums/music.png') no-repeat center;
+  background-size: contain;
+}
+
+/* меняет картинку металофона на пианино */
+.changePianino {
+  background: url('./img/drums/keyboard.png') no-repeat center;
+  background-size: contain;
 }
