@@ -75,7 +75,7 @@ button {
   overflow: hidden; /* предотвратит появление прокрутки при анимации расширения кнопок */
   grid-template-areas:
     '  .      .      .      .      .      .      .      .      .      .      .      .'
-    '  .      .      .     KeyQ   KeyQ   KeyW   KeyW   KeyE   KeyE    .    Equal    .'
+    '  .    Equal    .     KeyQ   KeyQ   KeyW   KeyW   KeyE   KeyE    .      .      .'
     '  .      .      .     KeyQ   KeyQ   KeyW   KeyW   KeyE   KeyE    .      .      .'
     '  .      .      .     KeyA   KeyA   KeyS   KeyS   KeyD   KeyD    .      .      .'
     '  .      .      .     KeyA   KeyA   KeyS   KeyS   KeyD   KeyD    .      .      .'
@@ -202,7 +202,7 @@ kbd {
 }
 .Equal {
   grid-area: Equal;
-  background: url('./img/drums/music.png') no-repeat center;
+  background: url('./img/drums/spotify.png') no-repeat center;
   background-size: contain;
 }
 
