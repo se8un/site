@@ -1,5 +1,6 @@
-// металофон
-const sounds = {
+// основные кнопки
+
+const matalofon = {
   KeyQ: new Audio('./sounds/metalofon/zvuk-notyi-do.wav'),
   KeyW: new Audio('./sounds/metalofon/zvuk-notyi-re.wav'),
   KeyE: new Audio('./sounds/metalofon/zvuk-notyi-mi.wav'),
@@ -11,7 +12,18 @@ const sounds = {
   KeyC: new Audio('./sounds//metalofon/zvuk-notyi-do.wav'),
 };
 
-// пианино
+const pianino = {
+  KeyQ: new Audio('./sounds/pianino/zvuk-notyi-do-rastyanutyiy.wav'),
+  KeyW: new Audio('./sounds/pianino/zvuk-notyi-re-rastyanutyiy.wav'),
+  KeyE: new Audio('./sounds/pianino/zvuk-notyi-mi-rastyanutyiy.wav'),
+  KeyA: new Audio('./sounds/pianino/zvuk-notyi-fa-rastyanutyiy.wav'),
+  KeyS: new Audio('./sounds/pianino/zvuk-notyi-sol-rastyanutyiy.wav'),
+  KeyD: new Audio('./sounds/pianino/zvuk-notyi-lya-rastyanutyiy.wav'),
+  KeyZ: new Audio('./sounds/pianino/zvuk-notyi-si-rastyanutyiy.wav'),
+  KeyX: new Audio('./sounds/pianino/zvuk-notyi-do-vo-vtoroy-oktave-rastyanutyiy.wav'),
+  KeyC: new Audio('./sounds/pianino/zvuk-notyi-do-rastyanutyiy.wav'),
+};
+
 const soundsLoop = {
   Digit1: new Audio('./sounds/pianino/zvuk-notyi-do-rastyanutyiy.wav'),
   Digit2: new Audio('./sounds/pianino/zvuk-notyi-re-rastyanutyiy.wav'),
@@ -24,15 +36,14 @@ const soundsLoop = {
   Digit9: new Audio('./sounds/pianino/zvuk-notyi-do-rastyanutyiy.wav'),
   Digit0: new Audio('./sounds/pianino/zvuk-notyi-do-rastyanutyiy.wav'),
 
-  Minus: new Audio(`./sounds/melody/${1}.wav`),
   Equal: new Audio(`./sounds/melody/${1}.wav`),
 };
 
-// перенес - и = в soundsLoop
-// const soundsUtility = {
-//   Minus: new Audio(`./sounds/melody/${randomSong}.wav`),
-//   Equal: new Audio(`./sounds/melody/${randomSong}.wav`),
-// };
+const soundsUtility = {
+  Minus: matalofon,
+};
+
+let sounds = soundsUtility.Minus;
 
 // Переключатель для отслеживания состояния воспроизведения звука
 const isPlaying = {};
@@ -79,13 +90,16 @@ function handlePlaySound(e) {
     }
   }
 
-  // - и =
-  // if (key in soundsUtility) {
-  //   audio = soundsUtility[key];
-  //   stopSound();
-  //   audio.play();
-  //   keyElement.classList.remove('playingMusic');
-  // }
+  // Minus
+  if (key in soundsUtility) {
+    if (sounds == matalofon) {
+      sounds = pianino;
+      keyElement.classList.add('playingMusic');
+    } else {
+      sounds = matalofon;
+      keyElement.classList.remove('playingMusic');
+    }
+  }
 
   if (!audio || !keyElement) return;
 
