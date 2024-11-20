@@ -89,6 +89,7 @@ button {
   outline: none;
   cursor: pointer;
   transition: all 1s ease;
+  -webkit-tap-highlight-color: transparent; /* устранения синего фона при нажатии на кнопку на мобильных устройствах  */
 }
 
 button:hover {
