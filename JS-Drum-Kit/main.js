@@ -23,12 +23,16 @@ const soundsLoop = {
   Digit8: new Audio('./sounds/pianino/zvuk-notyi-do-vo-vtoroy-oktave-rastyanutyiy.wav'),
   Digit9: new Audio('./sounds/pianino/zvuk-notyi-do-rastyanutyiy.wav'),
   Digit0: new Audio('./sounds/pianino/zvuk-notyi-do-rastyanutyiy.wav'),
+
+  Minus: new Audio(`./sounds/melody/${1}.wav`),
+  Equal: new Audio(`./sounds/melody/${1}.wav`),
 };
 
-const soundsUtility = {
-  Minus: new Audio('./sounds/pianino/zvuk-notyi-do-rastyanutyiy.wav'),
-  Equal: new Audio('./sounds/pianino/zvuk-notyi-do-vo-vtoroy-oktave-rastyanutyiy.wav'),
-};
+// перенес - и = в soundsLoop
+// const soundsUtility = {
+//   Minus: new Audio(`./sounds/melody/${randomSong}.wav`),
+//   Equal: new Audio(`./sounds/melody/${randomSong}.wav`),
+// };
 
 // Переключатель для отслеживания состояния воспроизведения звука
 const isPlaying = {};
@@ -36,7 +40,7 @@ const isPlaying = {};
 // Устанавливаем preload="auto" для всех аудиофайлов
 Object.values(sounds).forEach((audio) => (audio.preload = 'auto'));
 Object.values(soundsLoop).forEach((audio) => (audio.preload = 'auto'));
-Object.values(soundsUtility).forEach((audio) => (audio.preload = 'auto'));
+// Object.values(soundsUtility).forEach((audio) => (audio.preload = 'auto'));
 
 // Установка цикличного воспроизведения для каждого звука
 for (let music in soundsLoop) {
@@ -59,9 +63,15 @@ function handlePlaySound(e) {
   if (key in soundsLoop) {
     audio = soundsLoop[key];
     if (isPlaying[key]) {
+      if (key === 'Equal') {
+        soundsLoop.Equal = new Audio(`./sounds/melody/${Math.ceil(Math.random() * 5)}.wav`);
+      } else if (key === 'Minus') {
+        soundsLoop.Minus = new Audio(`./sounds/melody/${Math.ceil(Math.random() * 5)}.wav`);
+      }
       stopSound();
       isPlaying[key] = false;
     } else {
+      stopSound();
       audio.play();
       keyElement.classList.add('playing');
       keyElement.classList.add('playingMusic');
@@ -69,12 +79,13 @@ function handlePlaySound(e) {
     }
   }
 
-  if (key in soundsUtility) {
-    audio = soundsUtility[key];
-    stopSound();
-    audio.play();
-    keyElement.classList.remove('playingMusic');
-  }
+  // - и =
+  // if (key in soundsUtility) {
+  //   audio = soundsUtility[key];
+  //   stopSound();
+  //   audio.play();
+  //   keyElement.classList.remove('playingMusic');
+  // }
 
   if (!audio || !keyElement) return;
 
