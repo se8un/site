@@ -22,6 +22,7 @@ const soundsLoop = {
   Digit7: new Audio('./sounds/pianino/zvuk-notyi-si-rastyanutyiy.wav'),
   Digit8: new Audio('./sounds/pianino/zvuk-notyi-do-vo-vtoroy-oktave-rastyanutyiy.wav'),
   Digit9: new Audio('./sounds/pianino/zvuk-notyi-do-rastyanutyiy.wav'),
+  Digit0: new Audio('./sounds/pianino/zvuk-notyi-do-rastyanutyiy.wav'),
 };
 
 const soundsUtility = {
