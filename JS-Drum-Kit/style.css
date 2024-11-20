@@ -75,8 +75,8 @@ button {
   gap: 5px;
   overflow: hidden; /* предотвратит появление прокрутки при анимации расширения кнопок */
   grid-template-areas:
-    '  .      .      .      .      .      .      .      .      .      .      .    count'
-    '  .    Equal    .     KeyQ   KeyQ   KeyW   KeyW   KeyE   KeyE    .      .      .'
+    '  .      .      .      .      .      .      .      .      .      .      .      .'
+    '  .    Equal    .     KeyQ   KeyQ   KeyW   KeyW   KeyE   KeyE    .    count    .'
     '  .      .      .     KeyQ   KeyQ   KeyW   KeyW   KeyE   KeyE    .      .      .'
     '  .      .      .     KeyA   KeyA   KeyS   KeyS   KeyD   KeyD    .      .      .'
     '  .      .      .     KeyA   KeyA   KeyS   KeyS   KeyD   KeyD    .      .      .'
