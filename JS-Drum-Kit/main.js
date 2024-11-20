@@ -1,4 +1,6 @@
-// основные кнопки
+// счетчик
+const countElement = document.querySelector('#count');
+let counter = 0;
 
 const matalofon = {
   KeyQ: new Audio('./sounds/metalofon/zvuk-notyi-do.wav'),
@@ -65,20 +67,23 @@ function handlePlaySound(e) {
   let audio = null;
   const keyElement = document.querySelector(`.key[data-key="${key}"]`);
 
+  // случайный цвет
+  const randomColorValue = Math.floor(Math.random() * 256);
+
   if (key in sounds) {
     audio = sounds[key];
     stopSound();
     audio.play();
+
+    counter++;
+    countElement.innerText = counter;
+    getRandomColor(countElement);
   }
 
   if (key in soundsLoop) {
     audio = soundsLoop[key];
     if (isPlaying[key]) {
-      if (key === 'Equal') {
-        soundsLoop.Equal = new Audio(`./sounds/melody/${Math.ceil(Math.random() * 5)}.wav`);
-      } else if (key === 'Minus') {
-        soundsLoop.Minus = new Audio(`./sounds/melody/${Math.ceil(Math.random() * 5)}.wav`);
-      }
+      if (key === 'Equal') soundsLoop.Equal = new Audio(`./sounds/melody/${Math.ceil(Math.random() * 5)}.wav`);
       stopSound();
       isPlaying[key] = false;
     } else {
@@ -127,3 +132,10 @@ keys.forEach((key) =>
     }
   })
 );
+
+// Случайный цвет
+function getRandomColor(element) {
+  element.style.setProperty('--random-color-r', Math.max(64, Math.floor(Math.random() * 192) + 64));
+  element.style.setProperty('--random-color-g', Math.max(64, Math.floor(Math.random() * 192) + 64));
+  element.style.setProperty('--random-color-b', Math.max(64, Math.floor(Math.random() * 192) + 64));
+}

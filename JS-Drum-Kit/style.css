@@ -10,6 +10,7 @@
 
 html,
 body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
   width: 100%;
   height: 100%;
   background: url('./img/bg-sea-hang.webp');
@@ -74,7 +75,7 @@ button {
   gap: 5px;
   overflow: hidden; /* предотвратит появление прокрутки при анимации расширения кнопок */
   grid-template-areas:
-    '  .      .      .      .      .      .      .      .      .      .      .      .'
+    '  .      .      .      .      .      .      .      .      .      .      .    count'
     '  .    Equal    .     KeyQ   KeyQ   KeyW   KeyW   KeyE   KeyE    .      .      .'
     '  .      .      .     KeyQ   KeyQ   KeyW   KeyW   KeyE   KeyE    .      .      .'
     '  .      .      .     KeyA   KeyA   KeyS   KeyS   KeyD   KeyD    .      .      .'
@@ -85,7 +86,7 @@ button {
     '  .      .      .      .      .     Minus  Minus   .      .      .      .      .'
     '  .      .      .      .      .      .      .      .      .      .      .      .'
     '  .      .      .      .      .      .      .      .      .      .      .      .'
-    'Digit1 Digit2 Digit3 Digit4 Digit5 Digit6 Digit7 Digit8   .      .  Digit9 Digit0';
+    'Digit1 Digit2 Digit3 Digit4 Digit5 Digit6 Digit7 Digit8   .      .   Digit9 Digit0';
 }
 
 .digits,
@@ -210,4 +211,12 @@ kbd {
 .changePianino {
   background: url('./img/drums/keyboard.png') no-repeat center;
   background-size: contain;
+}
+
+/* счетчик нажатий */
+#count {
+  grid-area: count;
+  font-size: 50px;
+  text-shadow: 0 0 10px #000000;
+  color: rgb(var(--random-color-r), var(--random-color-g), var(--random-color-b));
 }
