@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: url('./img/bg-sea-hang.webp');
+  background-size: cover; /* Масштабирует изображение, чтобы оно покрывало весь экран */
+  background-position: center; /* Центрирует изображение */
+  background-repeat: no-repeat; /* Избегает повторения изображения */
+  background-attachment: fixed; /* Фиксирует фон при прокрутке */
+}
+
+/* кнопка на главную */
+.button-back {
+  position: absolute;
+  background-color: transparent;
+}
+
+/* _/_/_/_/_/_/_/_/_/_/_/_/ buttons _/_/_/_/_/_/_/_/_/_/_/_/ */
+.button-back {
+  margin: 10px;
+  padding: 10px;
+  font-size: 14px;
+  color: #fff;
+  text-shadow: 0 0 10px #f8c454;
+  background-color: #0000008b;
+  border: 1px solid #ffffff;
+  border-radius: 20%;
+  outline: none;
+  cursor: pointer;
+  transition: all 1s ease;
+}
+.button-back:hover {
+  border-color: #f8c454;
+  transition: transform var(--transition);
+  transform: scale(1.1);
+  border: 1px solid #000000;
+  background-color: #f8c454;
+  color: #000000;
+}
+
+/* дождь */
+#rainCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* Чтобы не мешать взаимодействию с остальными элементами */
+  z-index: 1;
+}
+
+.container {
+  display: grid;
+  width: 100vw; /* Охватывает всю ширину экрана */
+  height: 100vh; /* Охватывает всю высоту экрана */
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  gap: 5px;
+  overflow: hidden; /* предотвратит появление прокрутки при анимации расширения кнопок */
+  grid-template-areas:
+    '  .      .      .      .      .      .      .      .      .      .      .     .'
+    '  .      .      .     KeyQ   KeyQ   KeyW   KeyW   KeyE   KeyE    .      .     .'
+    '  .      .      .     KeyQ   KeyQ   KeyW   KeyW   KeyE   KeyE    .      .     .'
+    '  .      .      .     KeyA   KeyA   KeyS   KeyS   KeyD   KeyD    .      .     .'
+    '  .      .      .     KeyA   KeyA   KeyS   KeyS   KeyD   KeyD    .      .     .'
+    '  .      .      .     KeyZ   KeyZ   KeyX   KeyX   KeyC   KeyC    .      .     .'
+    '  .      .      .     KeyZ   KeyZ   KeyX   KeyX   KeyC   KeyC    .      .     .'
+    '  .      .      .      .      .      .      .      .      .      .      .     .'
+    '  .      .      .      .      .      .      .      .      .      .      .     .'
+    '  .      .      .      .      .      .      .      .      .      .      .     .'
+    '  .      .      .      .      .      .      .      .      .      .      .     .'
+    'Digit1 Digit2 Digit3 Digit4 Digit5 Digit6 Digit7 Digit8 Digit9 Digit0 Minus Equal';
+}
+
+.digits,
+.letters {
+  display: contents; /* Это позволяет каждому элементу внутри использовать grid-area */
+}
+
+/* кнопки */
+.key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('./img/drums/hang-drum.png') no-repeat center;
+  background-size: contain; /* Сохраняет пропорции изображения и отображает его целиком */
+  cursor: pointer;
+}
+
+/* цифра нижних иконок */
+.digits kbd {
+  align-self: flex-end;
+  font-size: 10px;
+  font-weight: bold;
+  color: #000000;
+  text-shadow: 0 0 10px #ffffff;
+  margin-bottom: 2px;
+}
+
+/* символ кнопки */
+.letters kbd {
+  display: none;
+}
+
+/* увеличение кнопок при нажатии */
+.playing.key {
+  transform: scale(1.1);
+}
+
+/* инверсия картинки при нажатии */
+.playingMusic {
+  filter: invert(1);
+}
+
+/* квадрат нот QWEASDZXC */
+.KeyQ {
+  grid-area: KeyQ;
+  background: url('./img/drums/drum-1.png') no-repeat center;
+  background-size: contain;
+}
+.KeyW {
+  grid-area: KeyW;
+  background: url('./img/drums/drum-2.png') no-repeat center;
+  background-size: contain;
+}
+.KeyE {
+  grid-area: KeyE;
+  background: url('./img/drums/drum-3.png') no-repeat center;
+  background-size: contain;
+}
+.KeyA {
+  grid-area: KeyA;
+  background: url('./img/drums/drum-4.png') no-repeat center;
+  background-size: contain;
+}
+.KeyS {
+  grid-area: KeyS;
+  background: url('./img/drums/hang-drum.png') no-repeat center;
+  background-size: contain;
+}
+.KeyD {
+  grid-area: KeyD;
+  background: url('./img/drums/drum-5.png') no-repeat center;
+  background-size: contain;
+}
+.KeyZ {
+  grid-area: KeyZ;
+  background: url('./img/drums/drum-6.png') no-repeat center;
+  background-size: contain;
+}
+.KeyX {
+  grid-area: KeyX;
+  background: url('./img/drums/drum-7.png') no-repeat center;
+  background-size: contain;
+}
+.KeyC {
+  grid-area: KeyC;
+  background: url('./img/drums/drum-8.png') no-repeat center;
+  background-size: contain;
+}
+
+/* цифры */
+.Digit1 {
+  grid-area: Digit1;
+}
+.Digit2 {
+  grid-area: Digit2;
+}
+.Digit3 {
+  grid-area: Digit3;
+}
+.Digit4 {
+  grid-area: Digit4;
+}
+.Digit5 {
+  grid-area: Digit5;
+}
+.Digit6 {
+  grid-area: Digit6;
+}
+.Digit7 {
+  grid-area: Digit7;
+}
+.Digit8 {
+  grid-area: Digit8;
+}
+.Digit9 {
+  grid-area: Digit9;
+}
+.Digit0 {
+  grid-area: Digit0;
+}
+/* - + */
+.Minus {
+  grid-area: Minus;
+}
+.Equal {
+  grid-area: Equal;
+}

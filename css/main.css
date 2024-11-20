@@ -1,0 +1,99 @@
+/* _/_/_/_/_/_/_/_/_/_/_/_/ main _/_/_/_/_/_/_/_/_/_/_/_/ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+:root {
+  --index: calc(1vw + 1vh);
+}
+
+/* _/_/_/_/_/_/_/_/_/_/_/_/ layers _/_/_/_/_/_/_/_/_/_/_/_/ */
+
+.layers {
+  perspective: 3000px;
+  overflow: hidden;
+}
+
+.layers-container {
+  height: 100vh;
+  width: 100vw;
+  min-height: 500px;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transform: rotateX(var(--move-y)) rotateY(var(--move-x));
+}
+
+.layers-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  overflow: hidden;
+  inset: -5vw;
+  background-size: cover;
+  background-position: center;
+}
+
+.layer-1 {
+  border-radius: 5%;
+  transform: translateZ(-55px) scale(1.25);
+}
+.layer-2 {
+  transform: translateZ(80px) scale(1.25);
+}
+.layer-3 {
+  transform: translateZ(180px) scale(0.8);
+}
+.layer-4 {
+  transform: translateZ(190px) scale(0.9);
+}
+.layer-5 {
+  transform: translateZ(300px) scale(0.8);
+}
+.layer-6 {
+  transform: translateZ(380px);
+}
+
+.layer-1,
+.layer-2,
+.layer-4,
+.layer-5,
+.layer-6 {
+  pointer-events: none;
+}
+
+/* _/_/_/_/_/_/_/_/_/_/_/_/ buttons _/_/_/_/_/_/_/_/_/_/_/_/ */
+
+.buttons-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: calc(var(--index) * 1.5);
+}
+
+button {
+  min-width: calc(var(--index) * 10);
+  margin: calc(var(--index) * 1);
+  padding: calc(var(--index) * 1.1);
+  font-size: calc(var(--index) * 1.5);
+  color: #fff;
+  text-shadow: 0 0 10px #8da657;
+  background-color: #0000008b;
+  border: 1px solid #ffffff;
+  border-radius: 8%;
+  outline: none;
+  cursor: pointer;
+  transition: all 1s ease;
+}
+
+button:hover {
+  border-color: #8da657;
+  transition: transform var(--transition);
+  transform: scale(1.1);
+  border: 1px solid #ffffff;
+  background-color: #8da657aa;
+}
