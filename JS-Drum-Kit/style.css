@@ -19,13 +19,18 @@ body {
   background-attachment: fixed; /* Фиксирует фон при прокрутке */
 }
 
+/* _/_/_/_/_/_/_/_/_/_/_/_/ buttons _/_/_/_/_/_/_/_/_/_/_/_/ */
+
+button {
+  -webkit-tap-highlight-color: transparent; /* устранения синего фона при нажатии на кнопку на мобильных устройствах  */
+}
+
 /* кнопка на главную */
 .button-back {
   position: absolute;
   background-color: transparent;
 }
 
-/* _/_/_/_/_/_/_/_/_/_/_/_/ buttons _/_/_/_/_/_/_/_/_/_/_/_/ */
 .button-back {
   margin: calc(var(--index) * 0.2);
   padding: calc(var(--index) * 0.5);
@@ -96,6 +101,7 @@ body {
   background: url('./img/drums/hang-drum.png') no-repeat center;
   background-size: contain; /* Сохраняет пропорции изображения и отображает его целиком */
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent; /* устранения синего фона при нажатии на кнопку на мобильных устройствах  */
 }
 
 /* цифра нижних иконок */
