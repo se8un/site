@@ -26,38 +26,28 @@ const pianino = {
   KeyC: new Audio('./sounds/pianino/zvuk-notyi-do-rastyanutyiy.wav'),
 };
 
-const soundsLoop = {
-  Digit1: new Audio('./sounds/pianino/zvuk-notyi-do-rastyanutyiy.wav'),
-  Digit2: new Audio('./sounds/pianino/zvuk-notyi-re-rastyanutyiy.wav'),
-  Digit3: new Audio('./sounds/pianino/zvuk-notyi-mi-rastyanutyiy.wav'),
-  Digit4: new Audio('./sounds/pianino/zvuk-notyi-fa-rastyanutyiy.wav'),
-  Digit5: new Audio('./sounds/pianino/zvuk-notyi-sol-rastyanutyiy.wav'),
-  Digit6: new Audio('./sounds/pianino/zvuk-notyi-lya-rastyanutyiy.wav'),
-  Digit7: new Audio('./sounds/pianino/zvuk-notyi-si-rastyanutyiy.wav'),
-  Digit8: new Audio('./sounds/pianino/zvuk-notyi-do-vo-vtoroy-oktave-rastyanutyiy.wav'),
+const musics = {
+  Digit1: new Audio('./sounds/melody/1.wav'),
+  Digit2: new Audio('./sounds/melody/2.wav'),
+  Digit3: new Audio('./sounds/melody/3.wav'),
+  Digit4: new Audio('./sounds/melody/4.wav'),
+  Digit5: new Audio('./sounds/melody/5.wav'),
 
-  MusicIcon: new Audio(`./sounds/melody/${1}.wav`),
+  Digit6: new Audio('./sounds/melody/1.wav'),
+  Digit7: new Audio('./sounds/melody/1.wav'),
+  Digit8: new Audio('./sounds/melody/1.wav'),
 };
 
-const soundsUtility = {
-  Instruments: matalofon,
-};
-
-let sounds = soundsUtility.Instruments;
+let sounds = matalofon;
 
 // Переключатель для отслеживания состояния воспроизведения звука
 const isPlaying = {};
 
 // Устанавливаем preload="auto" для всех аудиофайлов
 Object.values(sounds).forEach((audio) => (audio.preload = 'auto'));
-Object.values(soundsLoop).forEach((audio) => (audio.preload = 'auto'));
-// Object.values(soundsUtility).forEach((audio) => (audio.preload = 'auto'));
+Object.values(musics).forEach((audio) => (audio.preload = 'auto'));
 
-// Установка цикличного воспроизведения для каждого звука
-for (let music in soundsLoop) {
-  soundsLoop[music].loop = true;
-  isPlaying[music] = false;
-}
+setLoop(musics);
 
 function handlePlaySound(e) {
   // Берет `data-key` из элемента при клике или `code` при нажатии клавиши
@@ -67,7 +57,7 @@ function handlePlaySound(e) {
 
   if (key in sounds) {
     audio = sounds[key];
-    stopSound();
+    stopSound(audio, keyElement);
     audio.play();
 
     counter++;
@@ -76,24 +66,22 @@ function handlePlaySound(e) {
     getRandomColor(keyElement);
   }
 
-  if (key in soundsLoop) {
-    audio = soundsLoop[key];
+  if (key in musics) {
+    audio = musics[key];
+    stopSound(audio, keyElement);
     if (isPlaying[key]) {
-      if (key === 'MusicIcon') soundsLoop.MusicIcon = new Audio(`./sounds/melody/${Math.ceil(Math.random() * 5)}.wav`);
-      stopSound();
       isPlaying[key] = false;
     } else {
-      stopSound();
       audio.play();
       keyElement.classList.add('playing');
-      keyElement.classList.add('playingMusic');
+      keyElement.classList.add('invertColorPicture');
       isPlaying[key] = true;
     }
   }
 
   // Instruments
-  if (key in soundsUtility) {
-    if (sounds == matalofon) {
+  if (key === 'Instruments') {
+    if (sounds === matalofon) {
       sounds = pianino;
       keyElement.classList.add('changePianino');
     } else {
@@ -106,13 +94,6 @@ function handlePlaySound(e) {
 
   // Убираем класс 'playing' после окончания анимации
   setTimeout(() => keyElement.classList.remove('playing'), 100);
-
-  function stopSound() {
-    audio.pause();
-    audio.currentTime = 0;
-    keyElement.classList.add('playing');
-    keyElement.classList.remove('playingMusic');
-  }
 }
 
 // Обработчики для нажатия клавиши и клике мыши
@@ -128,6 +109,22 @@ keys.forEach((key) =>
     }
   })
 );
+
+// Установка цикличного воспроизведения для каждого звука
+function setLoop(objSounds) {
+  for (let sound in objSounds) {
+    objSounds[sound].loop = true;
+    isPlaying[sound] = false;
+  }
+}
+
+// Остановка звука
+function stopSound(audio, keyElement) {
+  audio.pause();
+  audio.currentTime = 0;
+  keyElement.classList.add('playing');
+  keyElement.classList.remove('invertColorPicture');
+}
 
 // Случайный цвет
 function getRandomColor(element) {

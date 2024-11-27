@@ -42,8 +42,10 @@ body {
 
 .container {
   display: grid;
-  width: 100vw; /* Охватывает всю ширину экрана */
-  height: 100vh; /* Охватывает всю высоту экрана */
+  min-height: 100vh;
+  min-width: 100vw;
+  /* width: 100vw; Охватывает всю ширину экрана */
+  /* height: 100vh; Охватывает всю высоту экрана */
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(11, 1fr) 80px; /* 11 строк с одинаковыми размерами, последняя строка высотой 60px */
   gap: 5px;
@@ -59,7 +61,7 @@ body {
     '  .      .      .      .      .      .      .      .      .      .      .      .'
     '  .      .      .      .      . Instruments Instruments . .      .      .      .'
     '  .      .      .      .      .      .      .      .      .      .      .      .'
-    '  .      .      .      .      .      .      .      .      .      .      .      .'
+    '  .      .   Digit1 Digit2 Digit3 Digit4 Digit5 Digit6 Digit7 Digit8    .      .'
     '  .      .   Digit1 Digit2 Digit3 Digit4 Digit5 Digit6 Digit7 Digit8    .      .';
 }
 
@@ -70,26 +72,24 @@ body {
 
 /* кнопки */
 .key {
-  background: url('./img/drums/hang-drum.png') no-repeat center;
+  background: url('./img/drums/hang-drum.png') center/cover no-repeat;
   background-size: contain; /* Сохраняет пропорции изображения и отображает его целиком */
   cursor: pointer;
   position: relative;
   top: -10px;
 }
 
-.playing.key {
-  filter: drop-shadow(10px 10px 20px rgb(var(--random-color-r), var(--random-color-g), var(--random-color-b)));
-}
-
 /* символ кнопки */
 .letters kbd {
-  color: rgb(var(--random-color-r), var(--random-color-g), var(--random-color-b));
-  font-size: 1.2rem;
-  text-shadow: 0 0 10px #000000;
-  transition: all 0.4s ease-in-out;
-  left: 0;
   position: absolute;
-  text-shadow: 2 2 10px #ffffff;
+  font-size: 1.5rem;
+  font-weight: 900;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, 50%);
+  color: rgb(var(--random-color-r), var(--random-color-g), var(--random-color-b));
+  text-shadow: 5px 5px 5px #000000;
+  transition: all 0.4s ease-in-out;
 }
 
 .digits kbd {
@@ -105,10 +105,11 @@ body {
 /* увеличение кнопок при нажатии */
 .playing.key {
   transform: scale(1.1);
+  filter: drop-shadow(10px 10px 50px rgb(var(--random-color-r), var(--random-color-g), var(--random-color-b)));
 }
 
 /* инверсия картинки при нажатии */
-.playingMusic {
+.invertColorPicture {
   filter: invert(1);
 }
 
@@ -130,11 +131,9 @@ body {
 }
 
 .button-back:hover {
-  border-color: #f8c454;
+  color: #000000;
   background-color: #f8c454;
   border: 1px solid #000000;
-  color: #000000;
-  transition: transform var(--transition);
   transform: scale(1.1);
 }
 
@@ -217,12 +216,6 @@ body {
   background-size: contain;
 }
 
-.MusicIcon {
-  grid-area: MusicIcon;
-  background: url('./img/drums/spotify.png') no-repeat center;
-  background-size: contain;
-}
-
 /* меняет картинку металофона на пианино */
 .changePianino {
   background: url('./img/drums/keyboard.png') no-repeat center;
@@ -241,4 +234,11 @@ body {
   top: 0;
   right: 0;
   margin: 10px;
+}
+
+/* убираем цифры и буквы для телефонов */
+@media (max-width: 768px) {
+  kbd {
+    display: none;
+  }
 }
