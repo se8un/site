@@ -5,7 +5,14 @@
 }
 
 :root {
+  -webkit-tap-highlight-color: transparent;
   --index: calc(1vw + 1vh);
+}
+
+/* устранения синего фона при нажатии на кнопку на мобильных устройствах  */
+button,
+#count {
+  -webkit-tap-highlight-color: transparent;
 }
 
 html,
@@ -21,10 +28,6 @@ body {
 }
 
 /* _/_/_/_/_/_/_/_/_/_/_/_/ buttons _/_/_/_/_/_/_/_/_/_/_/_/ */
-
-button {
-  -webkit-tap-highlight-color: transparent; /* устранения синего фона при нажатии на кнопку на мобильных устройствах  */
-}
 
 /* кнопка на главную */
 .button-back {
