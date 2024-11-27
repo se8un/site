@@ -10,6 +10,8 @@
 
 html {
   background: url('../img/layer-1.jpg') no-repeat;
+  font-size: 24px;
+  line-height: 1.5;
 }
 
 .rain {
@@ -29,7 +31,6 @@ html {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  min-width: 100vw;
   padding: 40px 20px;
 }
 
@@ -57,7 +58,6 @@ html {
 
 .card1 {
   flex-wrap: wrap;
-  /* margin-top: 50px; */
 }
 
 .card2,
@@ -66,33 +66,36 @@ html {
   background-color: #00000070;
   box-shadow: 1px 1px 5px #ffffff61;
   transition: all 0.5s ease;
+  font-size: 1rem;
 }
 
 .card3 {
-  font-size: 1.25rem;
+  margin-top: 20px;
+  font-size: 1.15rem;
 }
 
 .avatar {
   min-width: 100px;
   max-width: 200px;
   border-radius: 28px;
-  box-shadow: 1px 1px 50px #ffffff61;
+  box-shadow: 1px 1px 20px #ffffff61;
   margin: 0 auto;
   transition: all 0.5s ease;
 }
 
 .info-text {
   background-color: #0000005e;
-  box-shadow: 1px 1px 50px #080000;
+  box-shadow: 1px 1px 20px #080000;
   border-radius: 28px;
   flex-grow: 3;
   text-align: center;
   transition: all 0.5s ease;
+  font-size: 0.8rem;
 }
 
 .main-button {
   position: fixed;
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin: 2px;
   font-weight: bold;
   padding: calc(var(--index) * 0.8);
@@ -129,12 +132,12 @@ html {
   margin-bottom: 10px;
   border-bottom: 1px dashed #48ff004e;
   padding-bottom: 5px;
-  font-size: 18px;
+  font-size: 0.8rem;
 }
 
 .table {
   width: 100%;
-  font-size: 16px;
+  font-size: 0.8rem;
 }
 
 .table td {
@@ -147,7 +150,7 @@ html {
 .table-title {
   text-align: left;
   padding-right: 10px;
-  font-size: 18px;
+  font-size: 0.8rem;
 }
 
 .table td:nth-child(2),
