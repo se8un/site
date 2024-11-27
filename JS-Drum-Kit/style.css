@@ -222,4 +222,6 @@ kbd {
   font-size: 50px;
   text-shadow: 0 0 10px #000000;
   color: rgb(var(--random-color-r), var(--random-color-g), var(--random-color-b));
+  cursor: none;
+  user-select: none;
 }
