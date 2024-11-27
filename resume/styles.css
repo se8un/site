@@ -9,13 +9,7 @@
 }
 
 html {
-  width: 100%;
-  height: 100%;
-  background: url('../img/layer-1.jpg') center no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  position: absolute;
+  background: url('../img/layer-1.jpg') no-repeat;
 }
 
 .rain {
@@ -35,6 +29,7 @@ html {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  min-width: 100vw;
   padding: 40px 20px;
 }
 
