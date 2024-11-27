@@ -132,3 +132,28 @@ function getRandomColor(element) {
   element.style.setProperty('--random-color-g', Math.max(64, Math.floor(Math.random() * 192) + 64));
   element.style.setProperty('--random-color-b', Math.max(64, Math.floor(Math.random() * 192) + 64));
 }
+
+// Показать модальное окно при загрузке
+window.onload = function () {
+  const modal = document.querySelector('#modal');
+  modal.style.display = 'flex'; // Показываем окно
+  document.querySelector('#modal-title').innerText = '🔥 🙃 🎵 🎼 🦁';
+  document.querySelector('#modal-description').innerText = `
+  QWE  ASD ZXC - для воспроизведения звуков\n
+  1 2 3 4 5 6 7 8 - для выбора музыки\n
+  Справа вверху есть счетчик нажатий клавиш\n
+  Внизу кнопка металофон/пианино\n
+  Главное, не забывай пританцовывать!`;
+};
+
+// Закрыть модальное окно
+function closeModal() {
+  const modal = document.querySelector('#modal');
+  modal.style.display = 'none';
+}
+
+// добавляем в sessionStorage, чтобы не показывать модальное окно повторно
+if (!sessionStorage.getItem('modalShown')) {
+  modal.style.display = 'flex';
+  sessionStorage.setItem('modalShown', 'true');
+}
