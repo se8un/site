@@ -153,6 +153,6 @@ function closeModal() {
 
 // добавляем в sessionStorage, чтобы не показывать модальное окно повторно
 if (!sessionStorage.getItem('modalShown')) {
-  modal.style.display = 'flex';
+  document.querySelector('#modal').style.display = 'flex';
   sessionStorage.setItem('modalShown', 'true');
 }
