@@ -135,8 +135,6 @@ function getRandomColor(element) {
 
 // Показать модальное окно при загрузке
 window.onload = function () {
-  const modal = document.querySelector('#modal');
-  modal.style.display = 'flex'; // Показываем окно
   document.querySelector('#modal-title').innerText = '🔥 🙃 🎵 🎼 🦁';
   document.querySelector('#modal-description').innerText = `
   QWE  ASD ZXC - для воспроизведения звуков\n
@@ -144,6 +142,7 @@ window.onload = function () {
   Справа вверху есть счетчик нажатий клавиш\n
   Внизу кнопка металофон/пианино\n
   Главное, не забывай пританцовывать!`;
+  document.querySelector('#modal').style.display = 'flex'; // Показываем окно
 };
 
 // Закрыть модальное окно
