@@ -9,7 +9,7 @@
 }
 
 html {
-  background: url('../img/layer-1.jpg') no-repeat;
+  background: url('../img/layer-1.jpg') center/cover no-repeat;
   font-size: 24px;
   line-height: 1.5;
 }
@@ -31,6 +31,7 @@ html {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  min-width: 100vw;
   padding: 40px 20px;
 }
 
