@@ -15,12 +15,14 @@ body {
 
 body::before {
   content: '';
+  background-position: center;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: url('../img/layer-1.jpg') center/cover no-repeat;
+  transform: translateZ(0); /* Ускорение обработки */
   z-index: -1;
 }
 
@@ -40,6 +42,8 @@ body::before {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
 }
 
 .item {
@@ -61,37 +65,46 @@ body::before {
   box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.25);
   padding: 20px;
   gap: 30px;
+  margin-bottom: 20px;
 }
 
 .card1 {
   flex-wrap: wrap;
-  margin-top: 50px;
+  /* margin-top: 50px; */
 }
 
 .card2,
 .card3 {
   flex-wrap: wrap;
   background-color: #00000070;
+  box-shadow: 1px 1px 5px #ffffff61;
+  transition: all 0.5s ease;
+}
+
+.card3 {
+  font-size: 1.25rem;
 }
 
 .avatar {
   min-width: 100px;
   max-width: 200px;
   border-radius: 28px;
-  box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 1px 50px #ffffff61;
   margin: 0 auto;
+  transition: all 0.5s ease;
 }
 
 .info-text {
-  background-color: #00000070;
+  background-color: #0000005e;
+  box-shadow: 1px 1px 50px #080000;
   border-radius: 28px;
-  box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.25);
   flex-grow: 3;
   text-align: center;
+  transition: all 0.5s ease;
 }
 
 .main-button {
-  position: absolute;
+  position: fixed;
   font-size: 1.5rem;
   margin: 2px;
   font-weight: bold;
