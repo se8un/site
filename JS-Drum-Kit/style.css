@@ -5,13 +5,15 @@
 }
 
 :root {
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent; /* устранения синего фона при нажатии на кнопку на мобильных устройствах  */
+  -webkit-user-select: none; /* защита от выделения */
+  user-select: none;
   --index: calc(1vw + 1vh);
 }
 
-/* устранения синего фона при нажатии на кнопку на мобильных устройствах  */
 button,
-#count {
+#count,
+.key {
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -25,37 +27,6 @@ body {
   background-position: center; /* Центрирует изображение */
   background-repeat: no-repeat; /* Избегает повторения изображения */
   background-attachment: fixed; /* Фиксирует фон при прокрутке */
-}
-
-/* _/_/_/_/_/_/_/_/_/_/_/_/ buttons _/_/_/_/_/_/_/_/_/_/_/_/ */
-
-/* кнопка на главную */
-.button-back {
-  position: absolute;
-  background-color: transparent;
-}
-
-.button-back {
-  margin: calc(var(--index) * 0.2);
-  padding: calc(var(--index) * 0.5);
-  padding: 0 5px;
-  border-radius: 20%;
-  outline: none;
-  cursor: pointer;
-  transition: all 1s ease;
-  border-color: #f8c454;
-  background-color: #f8c454;
-  border: 1px solid #000000;
-  color: #000000;
-}
-
-.button-back:hover {
-  text-shadow: 0 0 10px #f8c454;
-  background-color: #0000008b;
-  border: 1px solid #ffffff;
-  color: #fff;
-  transition: transform var(--transition);
-  transform: scale(1.1);
 }
 
 /* дождь */
@@ -79,17 +50,17 @@ body {
   overflow: hidden; /* предотвратит появление прокрутки при анимации расширения кнопок */
   grid-template-areas:
     '  .      .      .      .      .      .      .      .      .      .      .      .'
-    '  .    Equal    .     KeyQ   KeyQ   KeyW   KeyW   KeyE   KeyE    .    count    .'
-    '  .      .      .     KeyQ   KeyQ   KeyW   KeyW   KeyE   KeyE    .      .      .'
+    '  .  MusicIcon  .     KeyQ   KeyQ   KeyW   KeyW   KeyE   KeyE    .    count    .'
+    '  .  MusicIcon  .     KeyQ   KeyQ   KeyW   KeyW   KeyE   KeyE    .      .      .'
     '  .      .      .     KeyA   KeyA   KeyS   KeyS   KeyD   KeyD    .      .      .'
     '  .      .      .     KeyA   KeyA   KeyS   KeyS   KeyD   KeyD    .      .      .'
     '  .      .      .     KeyZ   KeyZ   KeyX   KeyX   KeyC   KeyC    .      .      .'
     '  .      .      .     KeyZ   KeyZ   KeyX   KeyX   KeyC   KeyC    .      .      .'
     '  .      .      .      .      .      .      .      .      .      .      .      .'
-    '  .      .      .      .      .     Minus  Minus   .      .      .      .      .'
+    '  .      .      .      .      . Instruments Instruments . .      .      .      .'
     '  .      .      .      .      .      .      .      .      .      .      .      .'
     '  .      .      .      .      .      .      .      .      .      .      .      .'
-    'Digit1 Digit2 Digit3 Digit4 Digit5 Digit6 Digit7 Digit8   .      .   Digit9 Digit0';
+    '  .      .   Digit1 Digit2 Digit3 Digit4 Digit5 Digit6 Digit7 Digit8    .      .';
 }
 
 .digits,
@@ -102,12 +73,33 @@ body {
   background: url('./img/drums/hang-drum.png') no-repeat center;
   background-size: contain; /* Сохраняет пропорции изображения и отображает его целиком */
   cursor: pointer;
-  -webkit-tap-highlight-color: transparent; /* устранения синего фона при нажатии на кнопку на мобильных устройствах  */
+  position: relative;
+  top: -10px;
+}
+
+.playing.key {
+  filter: drop-shadow(10px 10px 20px rgb(var(--random-color-r), var(--random-color-g), var(--random-color-b)));
 }
 
 /* символ кнопки */
-kbd {
-  display: none;
+.letters kbd {
+  color: rgb(var(--random-color-r), var(--random-color-g), var(--random-color-b));
+  font-size: 1.2rem;
+  text-shadow: 0 0 10px #000000;
+  transition: all 0.4s ease-in-out;
+  left: 0;
+  position: absolute;
+  text-shadow: 2 2 10px #ffffff;
+}
+
+.digits kbd {
+  color: #000000;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-shadow: 2 2 10px #ffffff;
+  left: 50%;
+  bottom: -8px;
+  position: absolute;
 }
 
 /* увеличение кнопок при нажатии */
@@ -118,6 +110,32 @@ kbd {
 /* инверсия картинки при нажатии */
 .playingMusic {
   filter: invert(1);
+}
+
+/* кнопка на главную */
+.button-back {
+  position: absolute;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: calc(var(--index) * 0.2);
+  padding: calc(var(--index) * 0.5);
+  border-radius: 20%;
+  outline: none;
+  cursor: pointer;
+  text-shadow: 0 0 10px #f8c454;
+  background-color: #0000008b;
+  border: 1px solid #ffffff;
+  color: #fff;
+  transition: all 1s ease;
+}
+
+.button-back:hover {
+  border-color: #f8c454;
+  background-color: #f8c454;
+  border: 1px solid #000000;
+  color: #000000;
+  transition: transform var(--transition);
+  transform: scale(1.1);
 }
 
 /* квадрат нот QWEASDZXC */
@@ -192,20 +210,15 @@ kbd {
 .Digit8 {
   grid-area: Digit8;
 }
-.Digit9 {
-  grid-area: Digit9;
-}
-.Digit0 {
-  grid-area: Digit0;
-}
-/* - + */
-.Minus {
-  grid-area: Minus;
+
+.Instruments {
+  grid-area: Instruments;
   background: url('./img/drums/xylophone.png') no-repeat center;
   background-size: contain;
 }
-.Equal {
-  grid-area: Equal;
+
+.MusicIcon {
+  grid-area: MusicIcon;
   background: url('./img/drums/spotify.png') no-repeat center;
   background-size: contain;
 }
@@ -223,5 +236,9 @@ kbd {
   text-shadow: 0 0 10px #000000;
   color: rgb(var(--random-color-r), var(--random-color-g), var(--random-color-b));
   cursor: none;
-  user-select: none;
+  transition: all 0.4s ease-in-out;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
 }

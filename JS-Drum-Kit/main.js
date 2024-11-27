@@ -35,17 +35,15 @@ const soundsLoop = {
   Digit6: new Audio('./sounds/pianino/zvuk-notyi-lya-rastyanutyiy.wav'),
   Digit7: new Audio('./sounds/pianino/zvuk-notyi-si-rastyanutyiy.wav'),
   Digit8: new Audio('./sounds/pianino/zvuk-notyi-do-vo-vtoroy-oktave-rastyanutyiy.wav'),
-  Digit9: new Audio('./sounds/pianino/zvuk-notyi-do-rastyanutyiy.wav'),
-  Digit0: new Audio('./sounds/pianino/zvuk-notyi-do-rastyanutyiy.wav'),
 
-  Equal: new Audio(`./sounds/melody/${1}.wav`),
+  MusicIcon: new Audio(`./sounds/melody/${1}.wav`),
 };
 
 const soundsUtility = {
-  Minus: matalofon,
+  Instruments: matalofon,
 };
 
-let sounds = soundsUtility.Minus;
+let sounds = soundsUtility.Instruments;
 
 // Переключатель для отслеживания состояния воспроизведения звука
 const isPlaying = {};
@@ -67,9 +65,6 @@ function handlePlaySound(e) {
   let audio = null;
   const keyElement = document.querySelector(`.key[data-key="${key}"]`);
 
-  // случайный цвет
-  const randomColorValue = Math.floor(Math.random() * 256);
-
   if (key in sounds) {
     audio = sounds[key];
     stopSound();
@@ -78,12 +73,13 @@ function handlePlaySound(e) {
     counter++;
     countElement.innerText = counter;
     getRandomColor(countElement);
+    getRandomColor(keyElement);
   }
 
   if (key in soundsLoop) {
     audio = soundsLoop[key];
     if (isPlaying[key]) {
-      if (key === 'Equal') soundsLoop.Equal = new Audio(`./sounds/melody/${Math.ceil(Math.random() * 5)}.wav`);
+      if (key === 'MusicIcon') soundsLoop.MusicIcon = new Audio(`./sounds/melody/${Math.ceil(Math.random() * 5)}.wav`);
       stopSound();
       isPlaying[key] = false;
     } else {
@@ -95,7 +91,7 @@ function handlePlaySound(e) {
     }
   }
 
-  // Minus
+  // Instruments
   if (key in soundsUtility) {
     if (sounds == matalofon) {
       sounds = pianino;
